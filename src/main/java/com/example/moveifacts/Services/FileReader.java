@@ -45,27 +45,36 @@ public class FileReader {
             int year = Integer.parseInt(stringAsArray[0]);
             int length = Integer.parseInt(stringAsArray[1]);
             int popularity = Integer.parseInt(stringAsArray[4]);
-            Movie m = new Movie(year,length,stringAsArray[2],stringAsArray[3],popularity,stringAsArray[5]);
+            Movie m = new Movie(year, length, stringAsArray[2], stringAsArray[3], popularity, stringAsArray[5]);
             movies.add(m);
         }
         Collections.sort(movies, Collections.reverseOrder());
         return movies;
     }
 
-    public void CountWords(Map< String, Integer> words) throws FileNotFoundException
-    {
-        String word;
-        Scanner file=new Scanner (new File("resources/imdb-data.csv"));
-        while(file.hasNext()){
-            word=file.next().toLowerCase();
-            Integer count=words.get(word);
-            if(count!=null)
-                count++;
-            else
-                count=1;
-            words.put(word,count);
-        }
-        file.close();
-    }
+    public String CountWords() throws FileNotFoundException {
 
+        Scanner file = new Scanner(new File("resources/imdb-data.csv"));
+
+        HashMap<String, Integer> listofMovies = new HashMap<>();
+
+        int i = 0;
+
+        while (file.hasNext()) {
+
+            String s = file.next();
+            if (s.contains(";Yes")) {
+                listofMovies.put(s, i);
+                i++;
+            }
+        }
+        Set<Object> awardCount = new HashSet<>(listofMovies.values());
+
+        return "The amount of award winning movies is " + awardCount.size();
     }
+}
+
+
+
+
+

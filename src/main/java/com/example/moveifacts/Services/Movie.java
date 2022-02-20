@@ -68,7 +68,6 @@ public class Movie implements Comparable<Movie> {
         this.awards = awards;
     }
 
-
     @Override
     public int compareTo(Movie o) {
         Integer o1 = this.popularity;
@@ -77,7 +76,8 @@ public class Movie implements Comparable<Movie> {
 
     @Override
     public String toString() {
-        return "Title: " + title + " Year: " + year + " length: " + length + " subject: " + subject +
-                " popularity: "+ popularity + " awards: " + awards;
+        return ("Title: " + title + " Year: " + year + " Length: " + length + " Subject: " + subject +
+                " Popularity: "+ popularity + " Awards: " + awards);
+
     }
 }
