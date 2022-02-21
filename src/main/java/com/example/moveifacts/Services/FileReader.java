@@ -62,7 +62,7 @@ public class FileReader {
 
         while (file.hasNext()) {
 
-            String s = file.nextLine(); //ændrede den her til nextLine i stedet for bare next.
+            String s = file.nextLine();
             if (s.contains(";Yes")) {
                 listofMovies.put(s, i);
                 i++;
