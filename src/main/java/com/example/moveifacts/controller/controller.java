@@ -16,7 +16,7 @@ public class controller {
     FileReader f = new FileReader();
 
     @GetMapping("/")
-    public String Hallo(){
+    public String Hallo() {
         Gretting g = new Gretting();
         return g.gretting();
     }
@@ -24,7 +24,7 @@ public class controller {
     @GetMapping("/getFirst")
     public String First() throws IOException {
 
-        return "Title of first movie is: " +f.getFirst();
+        return "Title of first movie is: " + f.getFirst();
     }
 
     @GetMapping("/getRandom")
@@ -39,7 +39,7 @@ public class controller {
         movies = f.getTenSortByPopularity();
 
         return movies.toString();
-        }
+    }
 
 
     @GetMapping("/howManyWonAnAward")

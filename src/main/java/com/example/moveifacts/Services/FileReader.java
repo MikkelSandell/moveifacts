@@ -62,7 +62,7 @@ public class FileReader {
 
         while (file.hasNext()) {
 
-            String s = file.next();
+            String s = file.nextLine(); //ændrede den her til nextLine i stedet for bare next.
             if (s.contains(";Yes")) {
                 listofMovies.put(s, i);
                 i++;
@@ -72,7 +72,10 @@ public class FileReader {
 
         return "The amount of award winning movies is " + awardCount.size();
     }
+
+
 }
+
 
 
 
